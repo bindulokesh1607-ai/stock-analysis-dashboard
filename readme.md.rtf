@@ -1,0 +1,428 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2867
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\fmodern\fcharset0 Courier;\f2\fnil\fcharset0 AppleColorEmoji;
+\f3\froman\fcharset0 TimesNewRomanPSMT;\f4\froman\fcharset0 Times-Bold;\f5\fnil\fcharset0 Menlo-Regular;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}
+{\list\listtemplateid4\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid301\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid4}
+{\list\listtemplateid5\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid401\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid5}
+{\list\listtemplateid6\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid501\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid6}
+{\list\listtemplateid7\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid601\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid7}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}{\listoverride\listid6\listoverridecount0\ls6}{\listoverride\listid7\listoverridecount0\ls7}}
+\margl1440\margr1440\vieww37860\viewh19280\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 markdown\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26 \cf0 # 
+\f2 \uc0\u55357 \u56522 
+\f1  Stock Market Analysis Dashboard  \
+### Automated ETL Pipeline \'95 PostgreSQL Data Warehouse \'95 Tableau KPIs & Visualizations\
+\
+This project is a complete end\uc0\u8209 to\u8209 end data engineering + analytics workflow that extracts stock market data, loads it into a PostgreSQL warehouse, computes technical indicators, and visualizes insights through a professional Tableau dashboard.\
+\
+It demonstrates:\
+- ETL pipeline design  \
+- SQL schema modeling  \
+- Incremental loading  \
+- Metadata tracking  \
+- KPI engineering  \
+- Tableau dashboard development  \
+- Portfolio\uc0\u8209 ready documentation  \
+\
+---\
+\
+# 
+\f2 \uc0\u55356 \u57303 \u65039 
+\f1  Architecture Overview\
+\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\fs24 \cf0 Python ETL 
+\f3 \uc0\u8594 
+\f0  PostgreSQL (Neon) 
+\f3 \uc0\u8594 
+\f0  Tableau Desktop 
+\f3 \uc0\u8594 
+\f0  Dashboard\
+\pard\pardeftab720\partightenfactor0
+\cf0 Code\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26 \cf0 \
+### Components\
+| Layer | Technology | Purpose |\
+|-------|------------|---------|\
+| Data Source | Yahoo Finance API | Raw stock OHLCV data |\
+| ETL | Python (requests, pandas, psycopg2) | Extract, transform, load |\
+| Storage | PostgreSQL | Fact table + metadata table |\
+| BI Layer | Tableau | KPIs, charts, dashboard |\
+| Metadata | etl_metadata table | Tracks load timestamps & row counts |\
+\
+---\
+\
+# 
+\f2 \uc0\u55357 \u56772 \u65039 
+\f1  Database Schema\
+\
+## **fact_stock_prices**\
+Stores daily OHLCV data for each ticker.\
+\
+| Column | Type | Description |\
+|--------|------|-------------|\
+| id | SERIAL PK | Unique row ID |\
+| ticker | TEXT | Stock symbol |\
+| price_date | DATE | Trading date |\
+| open | NUMERIC | Opening price |\
+| high | NUMERIC | High price |\
+| low | NUMERIC | Low price |\
+| close | NUMERIC | Closing price |\
+| volume | BIGINT | Trading volume |\
+| created_at | TIMESTAMP | ETL insert timestamp |\
+\
+Indexes:\
+```sql\
+CREATE INDEX idx_ticker_date ON fact_stock_prices(ticker, price_date);\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f4\b\fs36 \cf0 etl_metadata\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b0\fs24 \cf0 Tracks ETL runs for monitoring and debugging.\
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1893\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth1367\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth2392\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+
+\f4\b \cf0 Column\cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+\cf0 Type\cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+\cf0 Description\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1893\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth1367\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth2392\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f0\b0 \cf0 ticker\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 TEXT\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 Stock symbol\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1893\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth1367\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth2392\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 last_loaded_date\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 DATE\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 Most recent date loaded\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1893\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth1367\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth2392\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 last_run_timestamp\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 TIMESTAMP\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 When ETL ran\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1893\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth1367\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth2392\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 rows_loaded\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 INT\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 Number of rows inserted\cell \lastrow\row
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\
+\pard\pardeftab720\sa321\partightenfactor0
+
+\f2\fs48 \cf0 \uc0\u9881 \u65039 
+\f4\b  ETL Pipeline (Python)\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\fs28 \cf0 Key Responsibilities\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa240\partightenfactor0
+\ls1\ilvl0
+\f0\b0\fs24 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Fetch OHLCV data for each ticker\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Clean & validate data\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Insert into PostgreSQL\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Avoid duplicates (idempotent loads)\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Update metadata table\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f4\b\fs28 \cf0 Core ETL Steps\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b0\fs24 \cf0 python\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26 \cf0 1. Define tickers = ["AAPL", "AMZN", "GOOGL", "MSFT", "NVDA", "TSLA"]\
+2. For each ticker:\
+      - Call Yahoo Finance API\
+      - Convert JSON 
+\f5 \uc0\u8594 
+\f1  pandas DataFrame\
+      - Clean column names\
+      - Insert into fact_stock_prices\
+      - Count rows inserted\
+      - Update etl_metadata\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f4\b\fs28 \cf0 Incremental Loading Logic\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b0\fs24 \cf0 sql\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26 \cf0 SELECT MAX(price_date)\
+FROM fact_stock_prices\
+WHERE ticker = 'AAPL';\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\fs24 \cf0 ETL only loads dates 
+\f4\b greater than
+\f0\b0  this value.\
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sa321\partightenfactor0
+
+\f2\fs48 \cf0 \uc0\u55357 \u56520 
+\f4\b  Tableau Calculations (Technical Indicators)\
+\pard\pardeftab720\sa298\partightenfactor0
+
+\fs36 \cf0 1. Daily Return\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b0\fs24 \cf0 tableau\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26 \cf0 (SUM([close]) - LOOKUP(SUM([close]), -1)) / LOOKUP(SUM([close]), -1)\
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f4\b\fs36 \cf0 2. 10\uc0\u8209 Day Moving Average (MA10)\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b0\fs24 \cf0 tableau\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26 \cf0 WINDOW_AVG(SUM([close]), -9, 0)\
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f4\b\fs36 \cf0 3. 10\uc0\u8209 Day Return\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b0\fs24 \cf0 tableau\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26 \cf0 (SUM([close]) - LOOKUP(SUM([close]), -10))\
+/\
+LOOKUP(SUM([close]), -10)\
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f4\b\fs36 \cf0 4. Latest Close (KPI)\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b0\fs24 \cf0 tableau\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26 \cf0 IF LAST() = 0 THEN SUM([close]) END\
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f4\b\fs36 \cf0 5. Latest 10\uc0\u8209 Day Return (KPI)\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b0\fs24 \cf0 Using a filter:\
+\pard\pardeftab720\partightenfactor0
+\cf0 tableau\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26 \cf0 LAST() = 0\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\pardeftab720\sa321\partightenfactor0
+
+\f2\fs48 \cf0 \uc0\u55357 \u56522 
+\f4\b  Dashboard Contents\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\fs28 \cf0 1. KPI Bar\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa240\partightenfactor0
+\ls2\ilvl0
+\f0\b0\fs24 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Latest Close Price (per ticker)\
+\ls2\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Latest 10\uc0\u8209 Day Return (per ticker)\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f4\b\fs28 \cf0 2. Price Over Time\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa240\partightenfactor0
+\ls3\ilvl0
+\f0\b0\fs24 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Area chart of closing prices\
+\ls3\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Multi\uc0\u8209 ticker comparison\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f4\b\fs28 \cf0 3. Volume Over Time\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa240\partightenfactor0
+\ls4\ilvl0
+\f0\b0\fs24 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Bar chart of trading volume\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f4\b\fs28 \cf0 4. Daily Returns\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa240\partightenfactor0
+\ls5\ilvl0
+\f0\b0\fs24 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Bar chart showing volatility\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f4\b\fs28 \cf0 5. 10\uc0\u8209 Day Moving Average\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa240\partightenfactor0
+\ls6\ilvl0
+\f0\b0\fs24 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Trend smoothing indicator\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f4\b\fs28 \cf0 6. ETL Metadata Panel\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa240\partightenfactor0
+\ls7\ilvl0
+\f0\b0\fs24 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Shows pipeline health\
+\ls7\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Last run timestamps\
+\ls7\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Rows loaded\
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sa321\partightenfactor0
+
+\f2\fs48 \cf0 \uc0\u55358 \u56810 
+\f4\b  Data Quality Checks\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\fs28 \cf0 1. Duplicate detection\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b0\fs24 \cf0 sql\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26 \cf0 SELECT ticker, price_date, COUNT(*)\
+FROM fact_stock_prices\
+GROUP BY 1,2\
+HAVING COUNT(*) > 1;\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f4\b\fs28 \cf0 2. Null checks\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b0\fs24 \cf0 sql\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26 \cf0 SELECT *\
+FROM fact_stock_prices\
+WHERE close IS NULL;\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f4\b\fs28 \cf0 3. Metadata validation\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b0\fs24 \cf0 sql\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26 \cf0 SELECT *\
+FROM etl_metadata\
+ORDER BY last_run_timestamp DESC;\
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \
+\pard\pardeftab720\sa321\partightenfactor0
+
+\f2\fs48 \cf0 \uc0\u55357 \u56960 
+\f4\b  How to Run the Project\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\fs28 \cf0 1. Clone the repo\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b0\fs24 \cf0 bash\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26 \cf0 git clone https://github.com/<your-username>/stock-analysis-dashboard.git\
+cd stock-analysis-dashboard\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f4\b\fs28 \cf0 2. Install dependencies\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b0\fs24 \cf0 bash\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26 \cf0 pip install -r requirements.txt\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f4\b\fs28 \cf0 3. Run ETL\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b0\fs24 \cf0 bash\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs26 \cf0 python etl_pipeline.py\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f4\b\fs28 \cf0 4. Open Tableau workbook\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b0\fs24 \cf0 Load 
+\f1\fs26 dashboard.twbx
+\f0\fs24  and refresh the PostgreSQL connection.\
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sa321\partightenfactor0
+
+\f4\b\fs48 \cf0 \
+}
